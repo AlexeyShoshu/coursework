@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muller';
+    font-style: normal;
+    font-weight: 300;
+    color: white;
+}
+
+img {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.al-cntr {
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+}
+
+.jc-sb {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.jc-cntr {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.jc-flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+}
+
+input {
+    border: 2px solid transparent;
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Muller';
+    color: white;
+    background-color: turquoise;
+
+}
+
+.error {
+    border: 2px solid red;
+}
+
+label {
+    width: 50%;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color: white;
+}
+
+
+/* Feedback styles start */
+.feedback {
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100vh;
+}
+
+.feedback-title {
+    color: black;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    width: 100%;
+}
+
+.feedback-form {
+    width: 50%;
+}
+
+.feedback-form-line {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.feedback-form-line:last-child{
+    color: black;
+}
+
+.to-reg-href, .to-auth-href{
+    margin-left: 5px;
+}
+
+.feedback-form-wrap {
+    width: 100%;
+}
+
+.feedback-button {
+    width: 125px;
+    height: 40px;
+    color: white;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+    background: turquoise;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* Feedback styles end */
