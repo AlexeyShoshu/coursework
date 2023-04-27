@@ -61,7 +61,7 @@
     <script src="/js/jquery-3.6.3.js"></script>
     <script src="/js/jquery.maskedinput.js"></script>
     <script src="/js/sweetalert2.js"></script>
-    <script src="/js/validation-reg.js"></script>
+    <script src="/js/validation-reg.js" type="module"></script>
 </body>
 
 </html>

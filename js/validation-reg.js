@@ -1,60 +1,60 @@
 let users = ['admin'],
     usersPasswords = ['123'];
 
-$("#phone").mask("+375(99) 999-99-99");
+window.onload = function () {
+    $("#phone").mask("+375(99) 999-99-99");
 
-let formReg = document.getElementById('form-reg'),
-    buttonReg = document.getElementById('feedback-button-reg');
+    let formReg = document.getElementById('form-reg'),
+        buttonReg = document.getElementById('feedback-button-reg');
 
-buttonReg.onclick = function () {
-    let error = 0;
-    Array.from(formReg.elements).forEach((el) => {
-        let regex = new RegExp(el.getAttribute("dataReg"));
-        if (regex.test(el.value) === false || el.value == '') {
+    buttonReg.onclick = function () {
+        let error = 0;
+        Array.from(formReg.elements).forEach((el) => {
+            let regex = new RegExp(el.getAttribute("dataReg"));
+            if (regex.test(el.value) === false || el.value == '') {
+                error++;
+                el.classList.add('error');
+            } else {
+                el.classList.remove('error');
+            }
+        })
+
+        let passwordReg = document.getElementById('password-reg'),
+            checkPasswordReg = document.getElementById('check-password-reg'),
+            regexPasswordReg = new RegExp(passwordReg.getAttribute("dataReg"));
+
+        if (passwordReg.value !== checkPasswordReg.value || regexPasswordReg.test(passwordReg.value) === false) {
             error++;
-            el.classList.add('error');
+            passwordReg.classList.add('error');
+            checkPasswordReg.classList.add('error');
         } else {
-            el.classList.remove('error');
+            passwordReg.classList.remove('error');
+            checkPasswordReg.classList.remove('error');
         }
-    })
 
-    let passwordReg = document.getElementById('password-reg'),
-        checkPasswordReg = document.getElementById('check-password-reg'),
-        regexPasswordReg = new RegExp(passwordReg.getAttribute("dataReg"));
+        if (error == 0) {
+            let username = document.getElementById('login-reg');
+            Swal.fire({
+                icon: 'success',
+                title: 'Аккаунт создан!',
+                timer: 5000
+            })
 
-    if (passwordReg.value !== checkPasswordReg.value || regexPasswordReg.test(passwordReg.value) === false) {
-        error++;
-        passwordReg.classList.add('error');
-        checkPasswordReg.classList.add('error');
-    } else {
-        passwordReg.classList.remove('error');
-        checkPasswordReg.classList.remove('error');
-    }
+            users.push(username.value);
+            usersPasswords.push(passwordReg.value);
+            console.log(users);
+            console.log(usersPasswords);
+            formReg.reset();
 
-
-    if (error == 0) {
-        let username = document.getElementById('login-reg');
-        Swal.fire({
-            icon: 'success',
-            title: 'Аккаунт создан!',
-            timer: 5000
-        })
-
-        users.push(username.value);
-        usersPasswords.push(passwordReg.value);
-        console.log(users);
-        console.log(usersPasswords);
-        formReg.reset();
-
-    } else {
-        console.log(error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Проверьте правильность введенных данных!',
-            timer: 5000
-        })
+        } else {
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Проверьте правильность введенных данных!',
+                timer: 5000
+            })
+        }
     }
 }
 
-
-export default users;
+export default {users, usersPasswords};
