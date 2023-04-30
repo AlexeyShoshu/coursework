@@ -1,6 +1,9 @@
 import users from './validation-reg.js';
+let module = await import('./validation-reg.js');
+
 
 console.log(users.users)
+console.log(module)
 
 window.onload = function () {
     let buttonAuth = document.getElementById('feedback-button-auth'),
