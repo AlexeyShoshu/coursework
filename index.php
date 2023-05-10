@@ -13,7 +13,7 @@
 
 <body>
     <!-- Feedback start-->
-    <div class="feedback d-flex al-cntr jc-cntr">
+    <div class="feedback-auth d-flex al-cntr jc-cntr">
         <div class="wrapper">
             <div class="feedback-wrap d-flex jc-cntr al-cntr">
                 <div class="feedback-title d-flex jc-cntr">
@@ -21,25 +21,65 @@
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-auth" name="form-auth" autocomplete="off"
-                        data-action="/mail.php" enctype="multipart/form-data" method="post">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-auth" name="form-auth" autocomplete="off" data-action="/mail.php" enctype="multipart/form-data" method="post">
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="name">Логин:</label>
-                            <input type="text" id="login-auth" name="login-auth" placeholder="Введите логин" data-name="Логин: " required
-                                data-reg="^a-zA-Zа-яА-Я{2,}$" />
+                            <input type="text" id="login-auth" name="login-auth" placeholder="Введите логин" data-name="Логин: " required data-reg="^a-zA-Zа-яА-Я{2,}$" />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="password">Пароль:</label>
                             <input type="password" id="password" name="password" placeholder="Введите пароль" required="">
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <div class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-auth"
-                                name="feedback-button-auth">
+                            <a class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-auth" name="feedback-button-auth" href="">
                                 Войти
-                            </div>
+                            </a>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            У вас нет аккаунта?<a href="register.php" class="to-reg-href">Зарегестрируйтесь!</a>
+                            У вас нет аккаунта?<a href="#" class="to-reg-href">Зарегестрируйтесь!</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-reg d-flex al-cntr jc-cntr d-none">
+        <div class="wrapper">
+            <div class="feedback-wrap d-flex jc-cntr al-cntr">
+                <div class="feedback-title d-flex jc-cntr">
+                    Регистрация
+                </div>
+
+                <div class="feedback-form-wrap d-flex jc-cntr">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-reg" name="form-reg" autocomplete="off" data-action="/mail.php" enctype="multipart/form-data" method="post">
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="name">Логин:</label>
+                            <input type="text" id="login-reg" name="login-reg" placeholder="Введите логин" data-name="ФИО:" required dataReg="^[а-яА-ЯёЁa-zA-Z0-9]{2,}" />
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="phone">Телефон:</label>
+                            <input type="text" id="phone" name="phone" placeholder="Телефон" dataReg="[^a-zа-я]" data-name="Телефон:" required="">
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="mail">Почта:</label>
+                            <input type="text" id="mail" name="mail" placeholder="Почта" data-name="Почта:" dataReg="^(([a-zа-я0-9_-]+\.)*[a-zа-я0-9_-]+@[a-zа-я0-9-]+(\.[a-zа-я0-9-]+)*\.[a-zа-я]{2,6})+$" required="">
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="password">Пароль:</label>
+                            <input type="password" id="password-reg" name="password-reg" dataReg="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" placeholder="Введите пароль – минимум 6 символов, буквы И цифры" required="">
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="password">Подтвердите пароль:</label>
+                            <input type="password" id="check-password-reg" name="check-password-reg" dataReg="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" placeholder="Повторите пароль" required="">
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <a class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-reg" name="feedback-button-reg">
+                                Сохранить
+                            </a>
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            Уже зарегестрированы?<a href="#" class="to-auth-href">Авторизуйтесь!</a>
                         </div>
                     </form>
                 </div>
@@ -52,7 +92,7 @@
     <script src="/js/jquery-3.6.3.js"></script>
     <script src="/js/jquery.maskedinput.js"></script>
     <script src="/js/sweetalert2.js"></script>
-    <script src="/js/validation-auth.js" type="module"></script>
+    <script src="/js/validation-reg.js"></script>
 </body>
 
 </html>

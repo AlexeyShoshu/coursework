@@ -1,13 +1,24 @@
-let users = ['admin'],
-    usersPasswords = ['123'];
-
 window.onload = function () {
+
+    $(".to-reg-href").on("click", function () {
+        $('.feedback-reg').toggle('.d-none');
+        $('.feedback-auth').toggle('.d-none');
+    });
+
+    $(".to-auth-href").on("click", function () {
+        $('.feedback-reg').toggle('.d-none');
+        $('.feedback-auth').toggle('.d-none');
+    });
+
+    let users = ['admin'],
+        usersPasswords = ['123'];
+
     $("#phone").mask("+375(99) 999-99-99");
 
     let formReg = document.getElementById('form-reg'),
         buttonReg = document.getElementById('feedback-button-reg');
 
-    buttonReg.onclick = function () {
+    buttonReg.onclick = function (el) {
         let error = 0;
         Array.from(formReg.elements).forEach((el) => {
             let regex = new RegExp(el.getAttribute("dataReg"));
@@ -34,20 +45,24 @@ window.onload = function () {
 
         if (error == 0) {
             let username = document.getElementById('login-reg');
-            Swal.fire({
-                icon: 'success',
-                title: 'Аккаунт создан!',
-                timer: 5000
-            })
+            if (users.includes(username.value)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Такой аккаунт уже существует!',
+                    timer: 5000
+                })
 
-            users.push(username.value);
-            usersPasswords.push(passwordReg.value);
-            console.log(users);
-            console.log(usersPasswords);
-            formReg.reset();
-
+            } else {
+                users.push(username.value);
+                usersPasswords.push(passwordReg.value);
+                formReg.reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Аккаунт создан!',
+                    timer: 5000
+                })
+            }
         } else {
-            console.log(error);
             Swal.fire({
                 icon: 'error',
                 title: 'Проверьте правильность введенных данных!',
@@ -55,6 +70,30 @@ window.onload = function () {
             })
         }
     }
-}
 
-export default {users, usersPasswords};
+    let buttonAuth = document.getElementById('feedback-button-auth'),
+        admin = document.getElementById('login-auth'),
+        adminPassword = document.getElementById('password');
+
+    buttonAuth.onclick = function (el) {
+        if ((users.includes(admin.value)) && (usersPasswords.includes(adminPassword.value))) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Вход выполнен!',
+                timer: 5000
+            })
+            if (admin.value == 'admin' && adminPassword.value == '123') {
+                buttonAuth.href = 'success_entry_admin.php';
+            } else {
+                buttonAuth.href = 'success_entry_worker.php';
+            }
+        } else {
+            el.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Проверьте правильность введенных данных!',
+                timer: 5000
+            })
+        }
+    };
+}
