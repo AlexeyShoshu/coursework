@@ -148,12 +148,12 @@ label {
 
 .item-wrap {
     margin: 0 auto 50px;
-    width: 1000px;
+    width: 1150px;
     background-color: blueviolet;
 }
 
 .item {
-    width: 25%;
+    width: 20%;
 }
 
 .cb {
@@ -166,7 +166,7 @@ label {
 }
 
 .item-acc {
-    width: 20%;
+    width: 16%;
 }
 
 .item-stock {
@@ -185,12 +185,16 @@ label {
 
 .button-add {
     background-color: red;
-    width: 220px;
+    /* width: 120px; */
     height: 20px;
     border-radius: 10px;
     font-weight: 400;
-    margin: 25px auto 0;
+    margin-bottom: 10px;
     color: white;
+}
+
+.item-wrap .item-block:not(:last-child) .button-add {
+    visibility: hidden;
 }
 
 .button-print {
@@ -208,6 +212,10 @@ label {
 
 .feedback-add {
     height: 100vh;
+}
+
+.item-repair {
+    width: 14%;
 }
 
 @media print { 

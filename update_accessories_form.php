@@ -16,25 +16,25 @@
         <div class="wrapper">
             <div class="feedback-wrap d-flex jc-cntr al-cntr">
                 <div class="feedback-title d-flex jc-cntr">
-                    Добавить материалы
+                    Обновить комплектующие
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/add_materials.php">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/update_accessories.php">
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="full-name">Название</label>
-                            <input type="full-name" id="name" name="name" placeholder="Введите название" dataReg="^[а-яА-ЯёЁ\s]+$" required>
+                            <label for="accessories_name">Название комплектующего:</label>
+                            <input type="text" id="accessories_name" name="accessories_name" placeholder="Введите название" dataReg="^[а-яА-ЯёЁ\s]+$" required>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Стоимость:</label>
-                            <input type="text" id="price" placeholder="Введите стоимость" name="price" dataReg="^[0-9]+$" required />
+                            <label for="accessories_price">Стоимость комплектующего:</label>
+                            <input type="text" id="accessories_price" placeholder="Введите стоимость" name="accessories_price" dataReg="^[0-9]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Количество:</label>
-                            <input type="text" id="count" placeholder="Введите количество" name="count" dataReg="^[0-9]+$" required />
+                            <label for="accessories_count">Количество комплектующих:</label>
+                            <input type="text" id="accessories_count" placeholder="Введите количество" name="accessories_count" dataReg="^[0-9]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Выберите ID склада (1/2)</label>
+                            <label for="stock_id">Выберите ID склада (1/2):</label>
                             <input type="text" id="stock_id" placeholder="Введите стоимость" name="stock_id" dataReg="^(1|2)$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">

@@ -11,7 +11,7 @@ window.onload = function () {
     });
 
     let users = ['admin'],
-        usersPasswords = ['123'];
+        usersPasswords = ['qwe123'];
 
     $("#phone").mask("+375(99) 999-99-99");
 
@@ -82,7 +82,7 @@ window.onload = function () {
                 title: 'Вход выполнен!',
                 timer: 5000
             })
-            if (admin.value == 'admin' && adminPassword.value == '123') {
+            if (admin.value == 'admin' && adminPassword.value == 'qwe123') {
                 buttonAuth.href = 'success_entry_admin.php';
             } else {
                 buttonAuth.href = 'success_entry_worker.php';

@@ -16,22 +16,26 @@
         <div class="wrapper">
             <div class="feedback-wrap d-flex jc-cntr al-cntr">
                 <div class="feedback-title d-flex jc-cntr">
-                    Добавить заказ на починку
+                    Обновить материалы
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/add_purchase_order.php">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/update_materials.php">
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="name">Дата начала:</label>
-                            <input type="date" min="2023-05-09" max="2023-05-09" id="date_start" name="date_start" dataReg="^[0-9-]+$" required />
+                            <label for="materials_name">Название материала:</label>
+                            <input type="text" id="materials_name" name="materials_name" placeholder="Введите название" dataReg="^[а-яА-ЯёЁ\s]+$" required>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Дата окончания:</label>
-                            <input type="date" min="2023-05-10" id="date_end" name="date_end" dataReg="^[0-9-]+$" required />
+                            <label for="materials_price">Стоимость материала:</label>
+                            <input type="text" id="materials_price" placeholder="Введите стоимость" name="materials_price" dataReg="^[0-9]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="full-name">ФИО клиента</label>
-                            <input type="full-name" id="client_full_name" name="client_full_name" placeholder="Введите ФИО" dataReg="^[а-яА-ЯёЁ\s.]+$" required>
+                            <label for="materials_count">Количество материалов:</label>
+                            <input type="text" id="materials_count" placeholder="Введите количество" name="materials_count" dataReg="^[0-9]+$" required />
+                        </div>
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="stock_id">Выберите ID склада (1/2):</label>
+                            <input type="text" id="stock_id" placeholder="Введите стоимость" name="stock_id" dataReg="^(1|2)$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <a class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-add" name="feedback-button-add">

@@ -25,24 +25,26 @@ $result_repair_order = mysqli_query($connection, $query_repair_order);
     </div>
 
     <div class="item-block d-flex jc-sb">
-        <div class="item item-main d-flex">ID</div>
-        <div class="item d-flex">Дата начала</div>
-        <div class="item d-flex">Дата окончания</div>
-        <div class="item d-flex">ФИО клиента</div>
+        <div class="item-repair item-main d-flex">ID</div>
+        <div class="item-repair d-flex">Ремонтируемая оргтехника</div>
+        <div class="item-repair d-flex">Дата начала</div>
+        <div class="item-repair d-flex">Дата окончания</div>
+        <div class="item-repair d-flex">ФИО клиента</div>
+        <div class="item-repair d-flex">Предполагаемый доход</div>
+        <div class="item-repair d-flex"></div>
     </div>
 
     <? while ($rows_repair_order = mysqli_fetch_assoc($result_repair_order)) { ?>
         <div class="item-block d-flex jc-sb">
-            <div class="item item-main d-flex"><? echo $rows_repair_order['id'] ?></div>
-            <div class="item d-flex"><? echo $rows_repair_order['date_start'] ?></div>
-            <div class="item d-flex"><? echo $rows_repair_order['date_end'] ?></div>
-            <div class="item d-flex"><? echo $rows_repair_order['client_full_name'] ?></div>
+            <div class="item-repair item-main d-flex"><? echo $rows_repair_order['id'] ?></div>
+            <div class="item-repair d-flex"><? echo $rows_repair_order['repaired_office_equipment'] ?></div>
+            <div class="item-repair d-flex"><? echo $rows_repair_order['date_start'] ?></div>
+            <div class="item-repair d-flex"><? echo $rows_repair_order['date_end'] ?></div>
+            <div class="item-repair d-flex"><? echo $rows_repair_order['client_full_name'] ?></div>
+            <div class="item-repair d-flex"><? echo $rows_repair_order['estimated_income'] ?></div>
+            <a href='update_repair_order_form.php' class="item-repair button-add jc-cntr al-cntr d-flex">Обновить</a>
         </div>
     <? } ?>
-
-    <a class="button-add d-flex jc-cntr al-cntr" href="add_repair_order_form.php">
-        Добавить заказ
-    </a>
 </div>
 
 <?
@@ -60,6 +62,7 @@ $result_purchase_order = mysqli_query($connection, $query_purchase_order);
         <div class="item d-flex">ФИО клиента</div>
         <div class="item d-flex">Дата доставки</div>
         <div class="item d-flex">Стоимость доставки</div>
+        <div class="item d-flex"></div>
     </div>
 
     <? while ($rows_purchase_order = mysqli_fetch_assoc($result_purchase_order)) { ?>
@@ -68,12 +71,9 @@ $result_purchase_order = mysqli_query($connection, $query_purchase_order);
             <div class="item d-flex"><? echo $rows_purchase_order['client_full_name'] ?></div>
             <div class="item d-flex"><? echo $rows_purchase_order['delivery_date'] ?></div>
             <div class="item d-flex"><? echo $rows_purchase_order['purchase_price'] ?></div>
+            <a href='update_purchase_order_form.php' class="item button-add jc-cntr al-cntr d-flex">Обновить</a>
         </div>
     <? } ?>
-
-    <a class="button-add d-flex jc-cntr al-cntr">
-        Добавить заказ
-    </a>
 </div>
 
 <?
@@ -107,11 +107,36 @@ $result_repair_order_accessories = mysqli_query($connection, $query_repair_order
             <div class="item-roa d-flex"><? echo $rows_repair_order_accessories['purchase_order_id'] ?></div>
         </div>
     <? } ?>
-
-    <a class="button-add d-flex jc-cntr al-cntr">
-        Добавить комплектующие
-    </a>
 </div>
 
-<a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" onclick="window.print()">Вывод на печать</a>
-<a class="button-print feedback-button d-flex jc-cntr al-cntr" href="/">Выход из системы</a>
+
+<?
+$query_stock = "SELECT * FROM stock";
+$result_stock = mysqli_query($connection, $query_stock);
+?>
+
+<div class="item-wrap item-wrap-worker">
+    <div class="item-table-name d-flex jc-cntr">
+        Склады
+    </div>
+
+    <div class="item-block d-flex jc-sb">
+        <div class="item-stock item-main d-flex">ID</div>
+        <div class="item-stock d-flex">Адрес склада</div>
+        <div class="item-stock d-flex">Объем склада</div>
+    </div>
+
+    <? while ($rows_stock = mysqli_fetch_assoc($result_stock)) { ?>
+        <div class="item-block d-flex jc-sb">
+            <div class="item-stock item-main d-flex"><? echo $rows_stock['id'] ?></div>
+            <div class="item-stock d-flex"><? echo $rows_stock['stock_address'] ?></div>
+            <div class="item-stock d-flex"><? echo $rows_stock['stock_valume'] ?></div>
+        </div>
+    <? } ?>
+</div>
+
+<div class="button-print-wrap d-flex">
+    <a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" href="add_order_form.php">Добавить заказ</a>
+    <a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" onclick="window.print()">Вывод на печать</a>
+    <a class="button-print feedback-button d-flex jc-cntr al-cntr" href="/">Выход из системы</a>
+</div>

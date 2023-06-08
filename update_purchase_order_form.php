@@ -16,26 +16,22 @@
         <div class="wrapper">
             <div class="feedback-wrap d-flex jc-cntr al-cntr">
                 <div class="feedback-title d-flex jc-cntr">
-                    Добавить комплектующие
+                    Обновить заказ на доставку
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/add_accessories.php">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/update_purchase_order.php">
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="full-name">Название</label>
-                            <input type="full-name" id="name" name="name" placeholder="Введите название" dataReg="^[а-яА-ЯёЁ\s]+$" required>
+                            <label for="full-name">ФИО клиента</label>
+                            <input type="full-name" id="client_full_name" name="client_full_name" placeholder="Введите ФИО" dataReg="^[а-яА-ЯёЁ\s.]+$" required>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Стоимость:</label>
-                            <input type="text" id="price" placeholder="Введите стоимость" name="price" dataReg="^[0-9]+$" required />
+                            <label for="delivery_date">Дата доставки:</label>
+                            <input type="date" min="2023-06-15" max="2023-06-30" id="delivery_date" name="delivery_date" dataReg="^[0-9-]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Количество:</label>
-                            <input type="text" id="count" placeholder="Введите количество" name="count" dataReg="^[0-9]+$" required />
-                        </div>
-                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Выберите ID склада (1/2)</label>
-                            <input type="text" id="stock_id" placeholder="Введите стоимость" name="stock_id" dataReg="^(1|2)$" required />
+                            <label for="purchase_price">Стоимость доставки:</label>
+                            <input type="text" id="purchase_price" placeholder="Введите стоимость" name="purchase_price" dataReg="^[0-9]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <a class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-add" name="feedback-button-add">

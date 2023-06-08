@@ -27,24 +27,26 @@
         </div>
 
         <div class="item-block d-flex jc-sb">
-            <div class="item item-main d-flex">ID</div>
-            <div class="item d-flex">Дата начала</div>
-            <div class="item d-flex">Дата окончания</div>
-            <div class="item d-flex">ФИО клиента</div>
+            <div class="item-repair item-main d-flex">ID</div>
+            <div class="item-repair d-flex">Ремонтируемая оргтехника</div>
+            <div class="item-repair d-flex">Дата начала</div>
+            <div class="item-repair d-flex">Дата окончания</div>
+            <div class="item-repair d-flex">ФИО клиента</div>
+            <div class="item-repair d-flex">Предполагаемый доход</div>
+            <div class="item-repair d-flex"></div>
         </div>
 
         <? while ($rows_repair_order = mysqli_fetch_assoc($result_repair_order)) { ?>
             <div class="item-block d-flex jc-sb">
-                <div class="item item-main d-flex"><? echo $rows_repair_order['id'] ?></div>
-                <div class="item d-flex"><? echo $rows_repair_order['date_start'] ?></div>
-                <div class="item d-flex"><? echo $rows_repair_order['date_end'] ?></div>
-                <div class="item d-flex"><? echo $rows_repair_order['client_full_name'] ?></div>
+                <div class="item-repair item-main d-flex"><? echo $rows_repair_order['id'] ?></div>
+                <div class="item-repair d-flex"><? echo $rows_repair_order['repaired_office_equipment'] ?></div>
+                <div class="item-repair d-flex"><? echo $rows_repair_order['date_start'] ?></div>
+                <div class="item-repair d-flex"><? echo $rows_repair_order['date_end'] ?></div>
+                <div class="item-repair d-flex"><? echo $rows_repair_order['client_full_name'] ?></div>
+                <div class="item-repair d-flex"><? echo $rows_repair_order['estimated_income'] ?></div>
+                <a href='update_repair_order_form.php' class="item-repair button-add jc-cntr al-cntr d-flex">Обновить</a>
             </div>
         <? } ?>
-
-        <a class="button-add d-flex jc-cntr al-cntr" href="add_repair_order_form.php">
-            Добавить заказ
-        </a>
     </div>
 
     <?
@@ -62,6 +64,7 @@
             <div class="item d-flex">ФИО клиента</div>
             <div class="item d-flex">Дата доставки</div>
             <div class="item d-flex">Стоимость доставки</div>
+            <div class="item d-flex"></div>
         </div>
 
         <? while ($rows_purchase_order = mysqli_fetch_assoc($result_purchase_order)) { ?>
@@ -70,12 +73,9 @@
                 <div class="item d-flex"><? echo $rows_purchase_order['client_full_name'] ?></div>
                 <div class="item d-flex"><? echo $rows_purchase_order['delivery_date'] ?></div>
                 <div class="item d-flex"><? echo $rows_purchase_order['purchase_price'] ?></div>
+                <a href='update_purchase_order_form.php' class="item button-add jc-cntr al-cntr d-flex">Обновить</a>
             </div>
         <? } ?>
-
-        <a class="button-add d-flex jc-cntr al-cntr" href="add_purchase_order_form.php">
-            Добавить заказ
-        </a>
     </div>
 
     <?
@@ -94,21 +94,19 @@
             <div class="item-acc d-flex">Стоимость</div>
             <div class="item-acc d-flex">Количество</div>
             <div class="item-acc d-flex">ID склада</div>
+            <div class="item-acc d-flex"></div>
         </div>
 
         <? while ($rows_accessories = mysqli_fetch_assoc($result_accessories)) { ?>
             <div class="item-block d-flex jc-sb">
                 <div class="item-acc item-main d-flex"><? echo $rows_accessories['id'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_accessories['name'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_accessories['price'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_accessories['count'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_accessories['accessories_name'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_accessories['accessories_price'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_accessories['accessories_count'] ?></div>
                 <div class="item-acc d-flex"><? echo $rows_accessories['stock_id'] ?></div>
+                <a href='update_accessories_form.php' class="item-acc button-add jc-cntr al-cntr d-flex">Обновить</a>
             </div>
         <? } ?>
-
-        <a class="button-add d-flex jc-cntr al-cntr" href="add_accessories_form.php">
-            Добавить комплектующие
-        </a>
     </div>
 
     <?
@@ -127,21 +125,19 @@
             <div class="item-acc d-flex">Стоимость</div>
             <div class="item-acc d-flex">Количество</div>
             <div class="item-acc d-flex">ID склада</div>
+            <div class="item-acc d-flex"></div>
         </div>
 
         <? while ($rows_materials = mysqli_fetch_assoc($result_materials)) { ?>
             <div class="item-block d-flex jc-sb">
                 <div class="item-acc item-main d-flex"><? echo $rows_materials['id'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_materials['name'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_materials['price'] ?></div>
-                <div class="item-acc d-flex"><? echo $rows_materials['count'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_materials['materials_name'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_materials['materials_price'] ?></div>
+                <div class="item-acc d-flex"><? echo $rows_materials['materials_count'] ?></div>
                 <div class="item-acc d-flex"><? echo $rows_materials['stock_id'] ?></div>
+                <a href='update_materials_form.php' class="item-acc button-add jc-cntr al-cntr d-flex">Обновить</a>
             </div>
         <? } ?>
-
-        <a class="button-add d-flex jc-cntr al-cntr" href="add_materials_form.php">
-            Добавить материалы
-        </a>
     </div>
 
     <?
@@ -200,13 +196,12 @@
                 <div class="item-roa d-flex"><? echo $rows_repair_order_accessories['purchase_order_id'] ?></div>
             </div>
         <? } ?>
-
-        <a class="button-add d-flex jc-cntr al-cntr">
-            Добавить комплектующие
-        </a>
     </div>
 
-    <a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" onclick="window.print()">Вывод на печать</a>
-    <a class="button-print feedback-button d-flex jc-cntr al-cntr" href="/">Выход из системы</a>
+    <div class="button-print-wrap d-flex">
+        <a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" href="add_order_form.php">Добавить заказ</a>
+        <a class="button-print feedback-button d-flex jc-cntr al-cntr mb-25" onclick="window.print()">Вывод на печать</a>
+        <a class="button-print feedback-button d-flex jc-cntr al-cntr" href="/">Выход из системы</a>
+    </div>
 
 </body>

@@ -16,22 +16,31 @@
         <div class="wrapper">
             <div class="feedback-wrap d-flex jc-cntr al-cntr">
                 <div class="feedback-title d-flex jc-cntr">
-                    Добавить заказ на доставку
+                    Обновить заказ на починку
                 </div>
 
                 <div class="feedback-form-wrap d-flex jc-cntr">
-                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/add_purchase_order.php">
+                    <form class="feedback-form d-flex jc-cntr al-cntr" id="form-add" name="form-add" autocomplete="off" method="POST" data-action="/update_repair_order.php">
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="repaired_office_equipment">Ремонтируемая оргтехника</label>
+                            <input type="text" id="repaired_office_equipment" name="repaired_office_equipment" placeholder="Введите ремонтируемую оргтехнику" dataReg="^[а-яА-Я\s]+$" required>
+                        </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <label for="full-name">ФИО клиента</label>
                             <input type="full-name" id="client_full_name" name="client_full_name" placeholder="Введите ФИО" dataReg="^[а-яА-ЯёЁ\s.]+$" required>
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="name">Дата доставки</label>
-                            <input type="date" min="2023-05-17" id="delivery_date" name="delivery_date" dataReg="^[0-9-]+$" required />
+                            <label for="name">Дата начала:</label>
+                            <input type="date" min="2023-06-02" max="2023-06-02" id="date_start" name="date_start" dataReg="^[0-9-]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
-                            <label for="password">Стоимость доставки:</label>
-                            <input type="text" min="2023-05-10" id="purchase_price" placeholder="Введите стоимость" name="purchase_price" dataReg="^[0-9]+$" required />
+                            <label for="password">Дата окончания:</label>
+                            <input type="date" min="2023-06-03" max="2023-06-14" id="date_end" name="date_end" dataReg="^[0-9-]+$" required />
+                        </div>
+
+                        <div class="feedback-form-line d-flex jc-cntr al-cntr">
+                            <label for="estimated_income">Предполагаемый доход:</label>
+                            <input type="text" min="2023-05-10" id="estimated_income" placeholder="Введите доход" name="estimated_income" dataReg="^[0-9]+$" required />
                         </div>
                         <div class="feedback-form-line d-flex jc-cntr al-cntr">
                             <a class="feedback-button d-flex al-cntr jc-cntr" id="feedback-button-add" name="feedback-button-add">
